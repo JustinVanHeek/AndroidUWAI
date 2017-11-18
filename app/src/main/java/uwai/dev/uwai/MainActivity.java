@@ -1,8 +1,10 @@
 package uwai.dev.uwai;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.CookieManager;
@@ -38,6 +40,10 @@ public class MainActivity extends AppCompatActivity {
                     else {
                         goToNoNetworkError(view);
                     }
+                }
+                else {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    startActivity(browserIntent);
                 }
                 return true;
             }
